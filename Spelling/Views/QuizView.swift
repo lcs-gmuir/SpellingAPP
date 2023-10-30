@@ -7,15 +7,21 @@
 
 import SwiftUI
 
+enum Outcome: String {
+    case undetermined = "XXXXXXXX"
+    case correct = "✅"
+    case incorrect = "❌"
+}
+
 struct QuizView: View {
-    enum Outcome: String {
-        
-    }
+    
+   
     
     // MARK: Stored properties
     @State var currentItem = itemsToSpell.randomElement()!
     @State var userGuess = ""
     @State var awnser = ""
+    @State  var currentOutCome: Outcome = .undetermined
     // MARK: Computed properties
     var body: some View {
         
@@ -26,7 +32,11 @@ struct QuizView: View {
                 .resizable()
                 .scaledToFit()
             HStack {
-                TextField("enter word here", text: $userGuess)
+                HStack {
+                    TextField("enter word here", text: $userGuess)
+                    Text(currentOutCome.rawValue)
+                }
+                
                 (Button(action: {
                     checkGuess()
                 }, label: {
@@ -38,10 +48,13 @@ struct QuizView: View {
     }
     func checkGuess() {
         if userGuess == currentItem.word{
-            awnser = "correct"
+            currentOutCome = .correct
+            currentOutCome = .undetermined
+            currentItem = items
+            
         userGuess = ""
         } else {
-           awnser = "wrong"
+            currentOutCome = .incorrect
         }
             
     }
