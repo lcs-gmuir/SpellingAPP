@@ -13,6 +13,7 @@ enum Outcome: String {
     case incorrect = "❌"
 }
 
+
 struct QuizView: View {
     
    
@@ -22,36 +23,52 @@ struct QuizView: View {
     @State var userGuess = ""
     @State var awnser = ""
     @State  var currentOutCome: Outcome = .undetermined
+    @State var history: [result] = []
+    
     // MARK: Computed properties
     var body: some View {
-        
-        VStack {
-            Text("\(awnser)")
-            
-            Image(currentItem.imageName)
-                .resizable()
-                .scaledToFit()
-            HStack {
-                HStack {
-                    TextField("enter word here", text: $userGuess)
-                    Text(currentOutCome.rawValue)
+        HStack {
+            List(history) { currentResult in
+                HStack{
+                    Image(currentResult.item.imageName)
+                        .resizable()
+                        .scaledToFit()
+                    
+                    Text(currentResult.guessProvided)
+                         Spacer()
+                         
+                         Text(currentResult.outcome.rawValue)
                 }
                 
-                (Button(action: {
-                    checkGuess()
-                }, label: {
-                    Text("Button")
-                }))
             }
-            .padding()
+            VStack {
+                Text("\(awnser)")
+                
+                Image(currentItem.imageName)
+                    .resizable()
+                    .scaledToFit()
+                HStack {
+                    HStack {
+                        TextField("enter word here", text: $userGuess).onSubmit {
+                            checkGuess()
+                            
+                        }
+                        Text(currentOutCome.rawValue)
+                    }
+                }
+                .padding()
+            }
         }
+        
     }
+    
     func checkGuess() {
         if userGuess == currentItem.word{
             currentOutCome = .correct
+            history.insert(result(item: currentItem, guessProvided: userGuess, outcome: currentOutCome),at: 0)
             currentOutCome = .undetermined
-            currentItem = items
-            
+            currentItem = itemsToSpell.randomElement()!
+          
         userGuess = ""
         } else {
             currentOutCome = .incorrect
