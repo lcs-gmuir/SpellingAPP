@@ -12,6 +12,7 @@
 		812E8CDC2AEFBCF30067B997 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 812E8CDB2AEFBCF30067B997 /* Preview Assets.xcassets */; };
 		812E8CE42AEFBD150067B997 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E8CE32AEFBD150067B997 /* QuizView.swift */; };
 		812E8CE82AEFBD410067B997 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E8CE72AEFBD410067B997 /* Item.swift */; };
+		C2E9AA8A2AEFED0200CE8EC0 /* function .swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9AA892AEFED0200CE8EC0 /* function .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		812E8CDD2AEFBCF30067B997 /* Spelling.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spelling.entitlements; sourceTree = "<group>"; };
 		812E8CE32AEFBD150067B997 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		812E8CE72AEFBD410067B997 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C2E9AA892AEFED0200CE8EC0 /* function .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "function .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		812E8CD32AEFBCF30067B997 /* Spelling */ = {
 			isa = PBXGroup;
 			children = (
+				C2E9AA882AEFECE800CE8EC0 /* helpers */,
 				812E8CD42AEFBCF30067B997 /* SpellingApp.swift */,
 				812E8CE52AEFBD210067B997 /* Model */,
 				812E8CE62AEFBD280067B997 /* Views */,
@@ -86,6 +89,14 @@
 				812E8CE32AEFBD150067B997 /* QuizView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C2E9AA882AEFECE800CE8EC0 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C2E9AA892AEFED0200CE8EC0 /* function .swift */,
+			);
+			path = helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E9AA8A2AEFED0200CE8EC0 /* function .swift in Sources */,
 				812E8CD52AEFBCF30067B997 /* SpellingApp.swift in Sources */,
 				812E8CE82AEFBD410067B997 /* Item.swift in Sources */,
 				812E8CE42AEFBD150067B997 /* QuizView.swift in Sources */,

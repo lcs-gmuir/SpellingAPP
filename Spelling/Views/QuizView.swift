@@ -51,7 +51,7 @@ struct QuizView: View {
                     HStack {
                         TextField("enter word here", text: $userGuess).onSubmit {
                             checkGuess()
-                            
+                            history.insert(result(item: currentItem, guessProvided: userGuess, outcome: currentOutCome),at: 0)
                         }
                         Text(currentOutCome.rawValue)
                     }
@@ -65,7 +65,7 @@ struct QuizView: View {
     func checkGuess() {
         if userGuess == currentItem.word{
             currentOutCome = .correct
-            history.insert(result(item: currentItem, guessProvided: userGuess, outcome: currentOutCome),at: 0)
+          
             currentOutCome = .undetermined
             currentItem = itemsToSpell.randomElement()!
           
